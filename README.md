@@ -10,13 +10,8 @@ Built as a 3-week group project for an AI/ML/DL Chatbot course.
 
 ## Live Demo
 
-> Deployed on Vercel — *(add your URL here once deployed)*
+> Deployed on Vercel — https://cc-chatbot-two.vercel.app/
 
----
-
-## Screenshots
-
-> *(add screenshots here)*
 
 ---
 
