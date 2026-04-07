@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --indigo: #6366f1;
+  --indigo-light: #eef2ff;
+  --indigo-hover: #4f46e5;
+  --text-primary: #18181b;
+  --text-secondary: #71717a;
+  --border: rgba(0, 0, 0, 0.07);
+  --bubble-bot: #f4f4f5;
+  --white: #ffffff;
+  --radius-card: 24px;
+  --radius-bubble: 18px;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #fafafa;
+  background-image: radial-gradient(circle, #d4d4d8 1px, transparent 1px);
+  background-size: 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Page entrance animation ── */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Card ── */
+.chat-card {
+  width: 100%;
+  max-width: 480px;
+  background: var(--white);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.03),
+    0 4px 8px rgba(0,0,0,0.04),
+    0 12px 32px rgba(0,0,0,0.07),
+    0 32px 64px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: pageIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Header ── */
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--indigo);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.header-icon svg {
+  width: 18px;
+  height: 18px;
+  color: white;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.header-text h1 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.header-text p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+}
+
+.header-status {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Messages area ── */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 340px;
+  max-height: 400px;
+  scroll-behavior: smooth;
+}
+
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: #e4e4e7; border-radius: 4px; }
+
+/* ── Message entrance animation ── */
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  animation: msgIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  max-width: 88%;
+}
+
+.message.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.message.bot {
+  align-self: flex-start;
+}
+
+/* ── Avatars ── */
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-bottom: 2px;
+}
+
+.avatar.bot-avatar {
+  background: var(--indigo);
+}
+
+.avatar.bot-avatar svg {
+  width: 14px;
+  height: 14px;
+  color: white;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.avatar.user-avatar {
+  background: #e4e4e7;
+}
+
+.avatar.user-avatar svg {
+  width: 14px;
+  height: 14px;
+  color: #71717a;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── Bubbles ── */
+.bubble {
+  padding: 11px 15px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  border-radius: var(--radius-bubble);
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.message.bot .bubble {
+  background: var(--bubble-bot);
+  color: var(--text-primary);
+  border-bottom-left-radius: 6px;
+}
+
+.message.user .bubble {
+  background: var(--indigo);
+  color: white;
+  border-bottom-right-radius: 6px;
+}
+
+/* ── Typing indicator ── */
+.typing-indicator {
+  display: none;
+  align-self: flex-start;
+  gap: 8px;
+  align-items: flex-end;
+  animation: msgIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.typing-indicator.visible {
+  display: flex;
+}
+
+.typing-bubble {
+  background: var(--bubble-bot);
+  border-radius: var(--radius-bubble);
+  border-bottom-left-radius: 6px;
+  padding: 13px 16px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a1a1aa;
+  animation: typingPulse 1.2s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(1) { animation-delay: 0s; }
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingPulse {
+  0%, 60%, 100% { transform: scale(1);   opacity: 0.4; }
+  30%           { transform: scale(1.5); opacity: 1;   }
+}
+
+/* ── Input area ── */
+.chat-input-area {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--white);
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f4f4f5;
+  border-radius: 14px;
+  padding: 6px 6px 6px 14px;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.input-row:focus-within {
+  background: var(--white);
+  box-shadow: 0 0 0 2px var(--indigo);
+}
+
+#user-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13.5px;
+  color: var(--text-primary);
+  outline: none;
+  resize: none;
+  line-height: 1.5;
+  max-height: 80px;
+  overflow-y: auto;
+  padding: 4px 0;
+}
+
+#user-input::placeholder { color: #a1a1aa; }
+
+#send-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--indigo);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#send-btn:hover {
+  background: var(--indigo-hover);
+  transform: scale(1.06);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+#send-btn:active { transform: scale(0.97); }
+
+#send-btn svg {
+  width: 15px;
+  height: 15px;
+  color: white;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform: translateX(1px);
+}
+
+/* ── Quick chips ── */
+.chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 28px;
+  justify-content: center;
+  animation: pageIn 0.5s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.chip {
+  background: var(--white);
+  border: 1px solid #e4e4e7;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-family: inherit;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.chip svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chip:hover {
+  background: var(--indigo-light);
+  border-color: #c7d2fe;
+  color: var(--indigo);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12);
+}
+
+.chip:active { transform: translateY(0); }
+
+/* ── Footer tagline ── */
+.page-footer {
+  margin-top: 18px;
+  font-size: 11.5px;
+  color: #a1a1aa;
+  letter-spacing: 0.01em;
+  animation: pageIn 0.5s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

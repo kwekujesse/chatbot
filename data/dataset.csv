@@ -1,0 +1,181 @@
+question,intent
+How do I write a good resume?,resume_writing
+What should I include in my resume?,resume_writing
+How long should my resume be?,resume_writing
+What is the best resume format for a student?,resume_writing
+How do I make my resume stand out?,resume_writing
+Should I include an objective or summary on my resume?,resume_writing
+How do I list skills on my resume?,resume_writing
+What are good action verbs for a resume?,resume_writing
+How do I tailor my resume to a job posting?,resume_writing
+What is an ATS and how does it affect my resume?,resume_writing
+Should I include my GPA on my resume?,resume_writing
+How many bullet points should I have per job?,resume_writing
+Can I use a resume template?,resume_writing
+What is the difference between a resume and a CV?,resume_writing
+How do I write a resume with no experience?,resume_writing
+How do I write a cover letter?,cover_letter
+What should I put in my cover letter?,cover_letter
+How long should a cover letter be?,cover_letter
+How do I start a cover letter?,cover_letter
+What is the proper format for a cover letter?,cover_letter
+How do I address a cover letter?,cover_letter
+What should the opening paragraph of a cover letter say?,cover_letter
+Do I really need a cover letter?,cover_letter
+How do I make my cover letter unique?,cover_letter
+What should I avoid in a cover letter?,cover_letter
+How do I close a cover letter?,cover_letter
+Should my cover letter match my resume design?,cover_letter
+How do I write a cover letter with no experience?,cover_letter
+Can I use the same cover letter for every job?,cover_letter
+What is the purpose of a cover letter?,cover_letter
+How do I prepare for a job interview?,interview_prep
+What are common interview questions?,interview_prep
+What is the STAR method?,interview_prep
+How do I answer tell me about yourself?,interview_prep
+What should I wear to an interview?,interview_prep
+How do I answer what is your greatest weakness?,interview_prep
+How early should I arrive to an interview?,interview_prep
+What questions should I ask the interviewer?,interview_prep
+How do I do a mock interview?,interview_prep
+How do I calm my nerves before an interview?,interview_prep
+What is a behavioral interview?,interview_prep
+How do I answer why do you want to work here?,interview_prep
+How do I follow up after an interview?,interview_prep
+What should I bring to an interview?,interview_prep
+How do I handle a panel interview?,interview_prep
+How do I find internships?,internship_search
+When should I start applying for internships?,internship_search
+What is a co-op program?,internship_search
+How do I get my first internship with no experience?,internship_search
+What websites are best for finding internships?,internship_search
+Are unpaid internships worth it?,internship_search
+How do I apply for a competitive internship?,internship_search
+What GPA do I need for an internship?,internship_search
+How do I get a summer internship?,internship_search
+Can a freshman get an internship?,internship_search
+How do I get an internship through networking?,internship_search
+What do employers look for in an intern?,internship_search
+How do I write a resume for an internship?,internship_search
+How many internships should I apply for?,internship_search
+What is the difference between an internship and a co-op?,internship_search
+How do I find a job after graduation?,job_search
+What are the best job search websites?,job_search
+How do I get a job with no experience?,job_search
+When should I start job hunting as a senior?,job_search
+How do I use LinkedIn to find a job?,job_search
+What is an entry-level job?,job_search
+How do I apply for a job online?,job_search
+How many jobs should I apply for?,job_search
+How do I follow up on a job application?,job_search
+What should I do if I haven't heard back after applying?,job_search
+How long does the job search process take?,job_search
+How do I research a company before applying?,job_search
+Should I apply for jobs I am not 100% qualified for?,job_search
+How do I track my job applications?,job_search
+What is a job offer letter and what should it include?,job_search
+How do I optimize my LinkedIn profile?,linkedin_profile
+What should my LinkedIn headline say?,linkedin_profile
+How do I write a LinkedIn summary?,linkedin_profile
+Should I add a photo to my LinkedIn profile?,linkedin_profile
+How many connections should I have on LinkedIn?,linkedin_profile
+How do I ask for a LinkedIn recommendation?,linkedin_profile
+What skills should I add to LinkedIn?,linkedin_profile
+How do I use LinkedIn to network?,linkedin_profile
+What is LinkedIn premium and is it worth it?,linkedin_profile
+How do I reach out to recruiters on LinkedIn?,linkedin_profile
+Should I turn on open to work on LinkedIn?,linkedin_profile
+How do I add my internship to LinkedIn?,linkedin_profile
+How do I get endorsements on LinkedIn?,linkedin_profile
+What is a good LinkedIn profile picture?,linkedin_profile
+How do I message someone I don't know on LinkedIn?,linkedin_profile
+How do I prepare for a career fair?,career_fair
+What should I bring to a career fair?,career_fair
+What should I wear to a career fair?,career_fair
+How do I talk to recruiters at a career fair?,career_fair
+What is an elevator pitch for a career fair?,career_fair
+How do I follow up after a career fair?,career_fair
+What companies attend career fairs?,career_fair
+How do I stand out at a career fair?,career_fair
+Should I bring my resume to a career fair?,career_fair
+How many companies should I talk to at a career fair?,career_fair
+What questions should I ask at a career fair?,career_fair
+How do I research companies before a career fair?,career_fair
+Is it okay to attend a career fair as a freshman?,career_fair
+How do I get an interview from a career fair?,career_fair
+What happens after a career fair?,career_fair
+How do I negotiate my salary?,salary_negotiation
+Is it okay to negotiate a job offer?,salary_negotiation
+What is a reasonable salary for an entry-level job?,salary_negotiation
+How do I research salary ranges?,salary_negotiation
+What do I say when negotiating a salary?,salary_negotiation
+How do I negotiate a higher starting salary?,salary_negotiation
+Should I negotiate my internship stipend?,salary_negotiation
+What if the company says the salary is non-negotiable?,salary_negotiation
+Can I negotiate benefits instead of salary?,salary_negotiation
+When do I bring up salary in the interview process?,salary_negotiation
+What is total compensation?,salary_negotiation
+How do I respond to a lowball offer?,salary_negotiation
+What is a signing bonus and can I negotiate it?,salary_negotiation
+How do I avoid revealing my salary expectations too early?,salary_negotiation
+What if I accept a job offer and then get a better one?,salary_negotiation
+How do I start networking?,networking
+What is an informational interview?,networking
+How do I reach out to someone on LinkedIn for networking?,networking
+How do I network at a professional event?,networking
+How do I network if I am introverted?,networking
+What is a mentor and how do I find one?,networking
+How do I build my professional network in college?,networking
+Should I connect with professors on LinkedIn?,networking
+How do I write a cold email for networking?,networking
+What do I say in a networking conversation?,networking
+How do I follow up after a networking meeting?,networking
+How do I network with alumni?,networking
+Can I network without going to events?,networking
+What is a professional association and should I join one?,networking
+How long should a networking coffee chat be?,networking
+How do I apply to graduate school?,graduate_school
+When should I apply for grad school?,graduate_school
+What is a statement of purpose?,graduate_school
+How do I write a personal statement for grad school?,graduate_school
+How do I get a strong letter of recommendation for grad school?,graduate_school
+Do I need to take the GRE?,graduate_school
+What GPA do I need for graduate school?,graduate_school
+Should I go to grad school or get a job?,graduate_school
+What is the difference between a masters and a PhD?,graduate_school
+How do I choose a graduate program?,graduate_school
+How do I contact a potential graduate school advisor?,graduate_school
+What are the requirements for an MBA?,graduate_school
+How do I get into a competitive graduate program?,graduate_school
+How long does it take to complete a master's degree?,graduate_school
+Is graduate school worth it?,graduate_school
+What is on-campus recruiting?,on_campus_recruiting
+When does on-campus recruiting start?,on_campus_recruiting
+How do I sign up for on-campus interviews?,on_campus_recruiting
+What is a superday interview?,on_campus_recruiting
+How do I get noticed during on-campus recruiting?,on_campus_recruiting
+Should I attend employer information sessions?,on_campus_recruiting
+How do I prepare for an on-campus first-round interview?,on_campus_recruiting
+What industries recruit heavily on campus?,on_campus_recruiting
+How does the recruiting timeline work?,on_campus_recruiting
+What is an OCI schedule?,on_campus_recruiting
+How early should I apply during campus recruiting?,on_campus_recruiting
+What happens after a superday?,on_campus_recruiting
+Can I do on-campus recruiting as a junior?,on_campus_recruiting
+How do I follow up with a campus recruiter?,on_campus_recruiting
+What if I miss the on-campus recruiting window?,on_campus_recruiting
+How do I figure out what career is right for me?,career_assessment
+What is a career assessment test?,career_assessment
+How do I know what I am good at?,career_assessment
+I don't know what to do with my major — what should I do?,career_assessment
+What career fits my personality?,career_assessment
+How do I discover my strengths?,career_assessment
+What is the Holland Code?,career_assessment
+What is StrengthsFinder?,career_assessment
+Is the MBTI useful for career planning?,career_assessment
+How do I find a career I am passionate about?,career_assessment
+What if I hate my chosen career path?,career_assessment
+How do I explore different careers in college?,career_assessment
+Should I switch majors if I don't like my career options?,career_assessment
+Can I change careers after graduation?,career_assessment
+How do I talk to a career counselor?,career_assessment

@@ -1,0 +1,136 @@
+{
+  "intents": [
+    {
+      "name": "resume_writing",
+      "keywords": ["resume", "cv", "curriculum", "vitae", "format", "section", "bullet", "objective", "summary", "one page", "template", "layout", "font", "header", "education section", "skills section", "work experience", "tailor", "ats", "applicant tracking", "write resume", "build resume", "create resume", "make resume", "resume tips", "resume help", "resume advice", "resume example", "resume sample", "resume length", "resume page", "resume action verbs", "resume gpa", "resume projects"],
+      "responses": [
+        "Keep your resume to 1 page as a student. Lead with a strong summary, then Education, Experience, Projects, and Skills.",
+        "Use strong action verbs — 'developed', 'led', 'increased', 'designed' — to start each bullet point. Quantify results where possible (e.g., 'increased sales by 20%').",
+        "Tailor your resume keywords to each job description. Many companies use ATS (Applicant Tracking Systems) that scan for keyword matches before a human ever sees it.",
+        "Avoid generic phrases like 'hard worker' or 'team player'. Show it through specific accomplishments instead.",
+        "Your Skills section should include both technical skills (Python, Excel, Tableau) and any relevant certifications or tools specific to your industry."
+      ]
+    },
+    {
+      "name": "cover_letter",
+      "keywords": ["cover letter", "cover", "letter", "introduction letter", "opening paragraph", "closing paragraph", "dear hiring", "body paragraph", "why i want", "motivation letter", "application letter", "write letter", "letter format", "letter template", "write cover", "need cover letter", "cover letter tips", "cover letter help", "cover letter example", "cover letter length", "cover letter format"],
+      "responses": [
+        "A great cover letter has 3 parts: an opening that hooks the reader, a middle that connects your experience to the role, and a closing with a clear call to action.",
+        "Start with something specific: mention the company name and why you want to work there. Hiring managers can tell when a letter is copy-pasted.",
+        "Keep it to one page, 3-4 paragraphs. Your cover letter should complement your resume, not repeat it — tell the story behind your best accomplishments.",
+        "Address it to a specific person whenever possible. 'Dear Hiring Manager' works, but 'Dear Ms. Patel' shows you did your research.",
+        "End with confidence: 'I would welcome the opportunity to discuss how my background aligns with your needs. I look forward to speaking with you.'"
+      ]
+    },
+    {
+      "name": "interview_prep",
+      "keywords": ["interview", "behavioral", "tell me about yourself", "prepare", "preparation", "practice", "mock interview", "star method", "strength", "weakness", "question", "answer", "panel", "technical interview", "dress code", "what to wear", "nervous", "tips", "interview tips", "interview help", "interview advice", "interview questions", "interview preparation", "prepare interview", "ace interview", "job interview", "before interview", "during interview", "after interview"],
+      "responses": [
+        "Use the STAR method for behavioral questions: Situation, Task, Action, Result. It keeps answers structured and impressive.",
+        "Prepare answers for the top 5 questions: Tell me about yourself, What's your greatest strength, What's your weakness, Why do you want this role, Where do you see yourself in 5 years.",
+        "Research the company before the interview — know their mission, recent news, and the specific team you'd be joining. Interviewers love when candidates ask informed questions.",
+        "Dress one level up from the company culture. When in doubt, business casual is safe. Clean, pressed, and professional always wins.",
+        "Practice out loud — not just in your head. Record yourself on your phone and watch it back. It feels awkward, but it's the fastest way to improve."
+      ]
+    },
+    {
+      "name": "internship_search",
+      "keywords": ["internship", "intern", "summer internship", "co-op", "coop", "paid internship", "unpaid internship", "apply internship", "find internship", "internship search", "internship application", "internship deadline", "internship program", "competitive internship", "get internship", "internship tips", "internship help", "internship advice", "first internship", "internship experience", "internship apply", "summer job", "internship hunt"],
+      "responses": [
+        "Start your internship search early — many competitive programs (finance, tech, consulting) recruit 6-9 months before the start date.",
+        "Use Handshake, LinkedIn, Indeed, and your school's career portal. Also check company websites directly — not all postings make it to job boards.",
+        "Reach out to alumni at your target companies through LinkedIn. A referral from an insider dramatically increases your chances of getting an interview.",
+        "Apply broadly — aim for 20-30 applications. Internship hunting is a numbers game, especially your first time.",
+        "Tailor your resume and cover letter for each application. A focused, relevant application always beats a generic spray-and-pray approach."
+      ]
+    },
+    {
+      "name": "job_search",
+      "keywords": ["job", "full time", "full-time", "employment", "hire", "hiring", "job search", "job board", "job posting", "apply job", "find job", "entry level", "new grad", "graduate job", "job hunting", "job market", "job offer", "job application", "find work", "get a job", "job tips", "job help", "job advice", "job after graduation", "after college", "career search", "work after graduation", "job opening", "job listing"],
+      "responses": [
+        "The best job search uses multiple channels: job boards (LinkedIn, Indeed, Glassdoor), direct company websites, networking, and career fairs.",
+        "For entry-level roles, networking matters more than applications. Around 70-80% of jobs are filled through connections. Tell everyone you know that you're looking.",
+        "Set up job alerts on LinkedIn and Indeed so new postings hit your inbox daily. Apply within the first 48 hours — early applicants get more visibility.",
+        "Research the company culture on Glassdoor and Blind before applying. Your happiness at work depends as much on culture fit as on the role itself.",
+        "Track every application in a spreadsheet: company, role, date applied, status, contact. It keeps your follow-ups organized and your sanity intact."
+      ]
+    },
+    {
+      "name": "linkedin_profile",
+      "keywords": ["linkedin", "profile", "connection", "network linkedin", "headline", "about section", "summary linkedin", "recommendation", "endorse", "skill linkedin", "photo", "banner", "profile picture", "open to work", "linkedin optimization", "linkedin tips", "linkedin help", "linkedin advice", "linkedin profile tips", "optimize linkedin", "improve linkedin", "linkedin summary", "linkedin bio", "linkedin photo"],
+      "responses": [
+        "Your LinkedIn headline is prime real estate. Instead of just your job title, try: 'Computer Science Student | Seeking Software Engineering Internship | Python, Java, AWS'.",
+        "Use a professional, high-quality headshot. Profiles with photos get 21x more views and 36x more messages.",
+        "Write your About section in first person. Tell your career story: what you've done, what you're passionate about, and what you're looking for.",
+        "Connect with everyone you meet — classmates, professors, event speakers, recruiters. The value of your network compounds over time.",
+        "Ask professors or supervisors for LinkedIn recommendations. Even 2-3 strong endorsements make your profile stand out from the competition."
+      ]
+    },
+    {
+      "name": "career_fair",
+      "keywords": ["career fair", "job fair", "career expo", "employer event", "recruiting event", "company booth", "career event", "bring to career fair", "prepare career fair", "elevator pitch", "dress career fair", "resume career fair", "follow up career fair", "fair", "expo", "prepare fair", "career fair tips", "career fair help", "career fair advice", "what to bring fair", "talk to recruiter", "meet employer"],
+      "responses": [
+        "Before the career fair, research the attending companies and make a priority list. Know their mission and any open roles — it shows you're serious.",
+        "Prepare a 30-second elevator pitch: your name, major, graduation year, and what kind of role you're looking for. Practice until it feels natural.",
+        "Bring 15-20 printed copies of your resume in a professional folder. Some employers ask for physical copies on the spot.",
+        "Dress professionally — business casual at minimum. First impressions at career fairs matter enormously.",
+        "After the fair, follow up within 24-48 hours. Email each recruiter you spoke with, reference your conversation, and express continued interest."
+      ]
+    },
+    {
+      "name": "salary_negotiation",
+      "keywords": ["salary", "negotiate", "negotiation", "pay", "compensation", "offer", "counter offer", "counteroffer", "raise", "stipend", "benefits", "total compensation", "base salary", "signing bonus", "how much", "worth", "market rate", "underpaid", "salary tips", "salary help", "salary advice", "ask for raise", "negotiate offer", "job offer", "how to negotiate", "salary range", "expected salary", "starting salary"],
+      "responses": [
+        "Always negotiate. Studies show that most employers expect it, and the worst they can say is no. Even a $5,000 increase now compounds over your entire career.",
+        "Research market rates first using Glassdoor, Levels.fyi, LinkedIn Salary, and the Bureau of Labor Statistics. Come in with data, not feelings.",
+        "When given an offer, say: 'I'm very excited about this opportunity. Based on my research and experience, I was hoping we could get closer to [X]. Is there flexibility there?'",
+        "If salary is fixed, negotiate other things: signing bonus, remote work flexibility, extra vacation days, professional development budget, or start date.",
+        "Never give the first number if you can help it. When asked for your salary expectations, try: 'I'd love to hear what range you have budgeted for this role.'"
+      ]
+    },
+    {
+      "name": "networking",
+      "keywords": ["network", "networking", "connect", "connection", "informational interview", "coffee chat", "mentor", "mentorship", "alumni", "professional event", "meetup", "conference", "relationship", "reach out", "cold email", "cold message", "build network", "networking tips", "networking help", "networking advice", "how to network", "meet people", "professional connection", "build connections", "expand network", "grow network"],
+      "responses": [
+        "Networking doesn't have to feel awkward. Start with warm connections: professors, family friends, alumni from your school. Ask for a 20-minute informational chat.",
+        "When reaching out cold on LinkedIn, keep it short and specific: introduce yourself, mention something you admire about their work, and ask one focused question.",
+        "Informational interviews are powerful. Ask about their career path, what skills matter most, and what they wish they'd known starting out. Listen more than you talk.",
+        "Follow up after every meaningful conversation with a thank-you message within 24 hours. Mention something specific from your talk — it shows you were paying attention.",
+        "Give before you take. Share articles, make introductions, offer help. Networking is a long-term investment in relationships, not a transaction."
+      ]
+    },
+    {
+      "name": "graduate_school",
+      "keywords": ["graduate school", "grad school", "masters", "master's", "phd", "doctorate", "mba", "graduate program", "graduate application", "gre", "gmat", "personal statement", "statement of purpose", "letter of recommendation", "apply grad school", "admission", "graduate degree", "grad school tips", "grad school help", "grad school advice", "should i go to grad school", "apply to masters", "apply to phd", "graduate admissions", "grad school application"],
+      "responses": [
+        "Start your grad school research early. Identify programs by fit (faculty, research areas, culture) not just ranking. Talk to current students and recent graduates.",
+        "Your statement of purpose is the most important part of your application. Tell a clear story: where you've been, why this program, and where you're going.",
+        "Ask for recommendation letters from professors who know your work well — not just the most famous name. A specific, personal letter beats a generic prestigious one.",
+        "For research-based programs, reaching out to potential advisors before applying can significantly boost your chances. Professors advocate for applicants they want.",
+        "Consider whether grad school is the right next step. Many fields reward work experience first. A few years in industry can make your application (and clarity of purpose) much stronger."
+      ]
+    },
+    {
+      "name": "on_campus_recruiting",
+      "keywords": ["on campus", "on-campus", "oci", "campus recruit", "campus interview", "employer visit", "info session", "information session", "recruiting cycle", "fall recruiting", "spring recruiting", "early deadline", "superday", "first round", "campus hire", "on campus recruiting", "campus recruiting tips", "campus recruiting help", "campus recruiting advice", "recruit on campus", "campus hiring", "employer on campus"],
+      "responses": [
+        "On-campus recruiting (OCR) has strict timelines — especially for finance, consulting, and big tech. Miss the window and you miss the opportunity. Check your career center's calendar now.",
+        "Attend employer info sessions even if you're not sure about the company. They're a low-pressure way to meet recruiters, and attendance is often tracked.",
+        "Sign up for on-campus interview slots as early as the system opens. Slots fill up fast, especially at top employers.",
+        "Treat every touchpoint with a recruiter as part of the interview — emails, info sessions, career fairs. They take notes and they remember.",
+        "If you get a first-round campus interview, prepare deeply on the company's core business, recent news, and why you want to work there specifically."
+      ]
+    },
+    {
+      "name": "career_assessment",
+      "keywords": ["career assessment", "career quiz", "career test", "strengths", "weakness", "what career", "career path", "major", "what should i do", "not sure", "undecided", "interest", "personality", "mbti", "myers briggs", "holland code", "discover career", "right career", "career fit", "passion", "career assessment tips", "find my career", "what job suits me", "career direction", "career exploration", "explore careers", "career counselor", "career counseling", "don't know what to do", "unsure career"],
+      "responses": [
+        "Try the Holland Code (RIASEC) assessment — it maps your interests to career clusters. Many career centers offer it free. It's a great starting point if you feel undecided.",
+        "Your strengths matter as much as your interests. Tools like CliftonStrengths (StrengthsFinder) help you identify what you naturally do well — which is often where you'll thrive.",
+        "If you're unsure about a career path, try job shadowing or informational interviews. Hearing from someone who does the job daily is worth more than any quiz.",
+        "Don't confuse your major with your career. Many employers care more about skills and experience than your specific degree. Explore broadly, especially early on.",
+        "It's normal not to have it all figured out. Most people change careers multiple times. Focus on building transferable skills — communication, problem-solving, analysis — that work anywhere."
+      ]
+    }
+  ]
+}
