@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from flask import Flask, render_template, request, jsonify
-from chatbot import chat
+from chatbot import chat, analyze
 
 app = Flask(__name__)
 
@@ -22,6 +22,22 @@ def chat_endpoint():
         return jsonify({"response": response})
     except Exception:
         return jsonify({"response": "I'm not sure about that one! Try asking me about resumes, interviews, internships, job searching, or salary negotiation."})
+
+
+@app.route("/visualizer")
+def visualizer():
+    return render_template("visualizer.html")
+
+
+@app.route("/analyze", methods=["POST"])
+def analyze_endpoint():
+    try:
+        user_input = request.json.get("message", "").strip()
+        if not user_input:
+            return jsonify({"error": "Please type a message!"})
+        return jsonify(analyze(user_input))
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":

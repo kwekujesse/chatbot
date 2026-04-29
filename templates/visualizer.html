@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — CareerCompass</title>
+  <link rel="stylesheet" href="/static/visualizer.css" />
+</head>
+<body>
+
+  <div class="viz-wrap">
+
+    <!-- Header -->
+    <div>
+      <a href="/" class="back-link">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Chat
+      </a>
+      <div class="viz-title-group">
+        <div class="viz-logo">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        </div>
+        <div>
+          <h1>How It Works</h1>
+          <p>Watch CareerCompass process your question step by step</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input card -->
+    <div class="input-card">
+      <label for="query-input">Type a question to analyze</label>
+      <div class="input-row">
+        <input type="text" id="query-input" placeholder="e.g. How do I write a good resume?" autocomplete="off" />
+        <button id="analyze-btn">
+          Analyze
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+      <div class="quick-examples">
+        <span>Try:</span>
+        <button class="ex-chip" onclick="runExample('How do I write a good resume?')">How do I write a good resume?</button>
+        <button class="ex-chip" onclick="runExample('Tips for my job interview')">Tips for my job interview</button>
+        <button class="ex-chip" onclick="runExample('What is the weather today?')">What is the weather today?</button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading-state" id="loading" style="display:none">
+      <div class="spinner"></div>
+      <span>Analyzing your input...</span>
+    </div>
+
+    <!-- Pipeline (hidden until first analysis) -->
+    <div id="pipeline" style="display:none">
+
+      <!-- Stage 1 -->
+      <div class="stage" id="stage-1">
+        <div class="stage-label">
+          <span class="stage-num">1</span>
+          <span>Raw Input</span>
+        </div>
+        <div class="stage-content" id="s1-content"></div>
+      </div>
+
+      <div class="stage-arrow" id="arrow-1">
+        <div class="arrow-line"></div>
+        <div class="arrow-label">lowercase + strip punctuation</div>
+        <div class="arrow-tip">↓</div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="stage" id="stage-2">
+        <div class="stage-label">
+          <span class="stage-num">2</span>
+          <span>Tokenization</span>
+          <code>word_tokenize()</code>
+        </div>
+        <div class="stage-content" id="s2-content"></div>
+      </div>
+
+      <div class="stage-arrow" id="arrow-2">
+        <div class="arrow-line"></div>
+        <div class="arrow-label">flag stopwords &amp; short words</div>
+        <div class="arrow-tip">↓</div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="stage" id="stage-3">
+        <div class="stage-label">
+          <span class="stage-num">3</span>
+          <span>Stopword Removal</span>
+        </div>
+        <div class="stage-content" id="s3-content"></div>
+        <div class="stage-legend">
+          <span class="legend-item kept">Kept</span>
+          <span class="legend-item stopword">Stopword (removed)</span>
+          <span class="legend-item short">Too short (removed)</span>
+        </div>
+      </div>
+
+      <div class="stage-arrow" id="arrow-3">
+        <div class="arrow-line"></div>
+        <div class="arrow-label">PorterStemmer — strip suffixes to root form</div>
+        <div class="arrow-tip">↓</div>
+      </div>
+
+      <!-- Stage 4 -->
+      <div class="stage" id="stage-4">
+        <div class="stage-label">
+          <span class="stage-num">4</span>
+          <span>Stemming</span>
+          <code>PorterStemmer()</code>
+        </div>
+        <div class="stage-content" id="s4-content"></div>
+      </div>
+
+      <div class="stage-arrow" id="arrow-4">
+        <div class="arrow-line"></div>
+        <div class="arrow-label">count overlapping stems per intent</div>
+        <div class="arrow-tip">↓</div>
+      </div>
+
+      <!-- Stage 5 -->
+      <div class="stage" id="stage-5">
+        <div class="stage-label">
+          <span class="stage-num">5</span>
+          <span>Intent Scoring</span>
+        </div>
+        <div class="stage-content" id="s5-content"></div>
+      </div>
+
+      <div class="stage-arrow" id="arrow-5">
+        <div class="arrow-line"></div>
+        <div class="arrow-label">select highest-scoring intent</div>
+        <div class="arrow-tip">↓</div>
+      </div>
+
+      <!-- Stage 6 -->
+      <div class="stage" id="stage-6">
+        <div class="stage-label">
+          <span class="stage-num">6</span>
+          <span>Output</span>
+        </div>
+        <div class="stage-content" id="s6-content"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <p class="page-footer">Powered by rule-based AI &amp; GPT-4o mini</p>
+
+  <script>
+    const queryInput  = document.getElementById('query-input');
+    const analyzeBtn  = document.getElementById('analyze-btn');
+    const loadingEl   = document.getElementById('loading');
+    const pipelineEl  = document.getElementById('pipeline');
+
+    const stageIds = ['stage-1','stage-2','stage-3','stage-4','stage-5','stage-6'];
+    const arrowIds = ['arrow-1','arrow-2','arrow-3','arrow-4','arrow-5'];
+
+    // Timing (ms) each element becomes visible
+    const STAGE_DELAYS = [150, 650, 1200, 1750, 2300, 3050];
+    const ARROW_DELAYS = [400, 950, 1500, 2050, 2700];
+    const BAR_DELAY    = 2600; // after stage-5 appears
+
+    analyzeBtn.addEventListener('click', analyze);
+    queryInput.addEventListener('keydown', e => { if (e.key === 'Enter') analyze(); });
+
+    function runExample(text) {
+      queryInput.value = text;
+      analyze();
+    }
+
+    function fmt(name) {
+      return name.split('_').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+    }
+
+    function esc(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function reset() {
+      stageIds.forEach(id => document.getElementById(id).classList.remove('stage--active'));
+      arrowIds.forEach(id => document.getElementById(id).classList.remove('stage--active'));
+      document.querySelectorAll('.score-bar-fill').forEach(b => { b.style.width = '0'; });
+    }
+
+    async function analyze() {
+      const query = queryInput.value.trim();
+      if (!query) return;
+
+      reset();
+      pipelineEl.style.display = 'none';
+      loadingEl.style.display  = 'flex';
+      analyzeBtn.disabled = true;
+
+      try {
+        const res  = await fetch('/analyze', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: query }),
+        });
+        const data = await res.json();
+
+        if (data.error) {
+          loadingEl.style.display = 'none';
+          analyzeBtn.disabled = false;
+          alert(data.error);
+          return;
+        }
+
+        buildStage1(data);
+        buildStage2(data);
+        buildStage3(data);
+        buildStage4(data);
+        buildStage5(data);
+        buildStage6(data);
+
+        loadingEl.style.display = 'none';
+        pipelineEl.style.display = 'flex';
+        pipelineEl.style.flexDirection = 'column';
+        analyzeBtn.disabled = false;
+
+        // Reveal stages one by one
+        stageIds.forEach((id, i) => {
+          setTimeout(() => document.getElementById(id).classList.add('stage--active'), STAGE_DELAYS[i]);
+        });
+        arrowIds.forEach((id, i) => {
+          setTimeout(() => document.getElementById(id).classList.add('stage--active'), ARROW_DELAYS[i]);
+        });
+
+        // Animate score bars after stage-5 appears
+        setTimeout(() => {
+          document.querySelectorAll('.score-bar-fill').forEach(bar => {
+            bar.style.width = (bar.dataset.pct || 0) + '%';
+          });
+        }, BAR_DELAY);
+
+        // Scroll to pipeline
+        setTimeout(() => pipelineEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+
+      } catch (err) {
+        loadingEl.style.display = 'none';
+        analyzeBtn.disabled = false;
+        alert('Something went wrong. Is the server running?');
+      }
+    }
+
+    /* ── Stage builders ── */
+
+    function buildStage1(data) {
+      document.getElementById('s1-content').innerHTML =
+        `<div class="raw-input-box">"${esc(data.raw)}"</div>`;
+    }
+
+    function buildStage2(data) {
+      const chips = data.token_info
+        .map(t => `<span class="token plain">${esc(t.word)}</span>`)
+        .join('');
+      document.getElementById('s2-content').innerHTML =
+        `<div class="token-wrap">${chips || '<em class="no-tokens-msg">No tokens found</em>'}</div>`;
+    }
+
+    function buildStage3(data) {
+      const chips = data.token_info
+        .map(t => `<span class="token ${esc(t.status)}">${esc(t.word)}</span>`)
+        .join('');
+      document.getElementById('s3-content').innerHTML =
+        `<div class="token-wrap">${chips || '<em class="no-tokens-msg">No tokens</em>'}</div>`;
+    }
+
+    function buildStage4(data) {
+      if (!data.stem_pairs.length) {
+        document.getElementById('s4-content').innerHTML =
+          '<p class="no-tokens-msg">No tokens survived — all words were stopwords or too short.</p>';
+        return;
+      }
+      const pairs = data.stem_pairs.map(p => `
+        <div class="stem-pair">
+          <span class="stem-original">${esc(p.word)}</span>
+          <span class="stem-arrow-icon">→</span>
+          <span class="stem-result">${esc(p.stem)}</span>
+        </div>`).join('');
+      document.getElementById('s4-content').innerHTML =
+        `<div class="stem-grid">${pairs}</div>`;
+    }
+
+    function buildStage5(data) {
+      const maxScore = Math.max(1, ...data.scores.map(s => s.score));
+      const winnerName = data.winner ? data.winner.name : null;
+
+      // Show all intents with score > 0; pad with zero-score intents up to 6 rows total
+      const positive = data.scores.filter(s => s.score > 0);
+      const zeros    = data.scores.filter(s => s.score === 0).slice(0, Math.max(0, 6 - positive.length));
+      const display  = [...positive, ...zeros];
+      const hidden   = data.scores.length - display.length;
+
+      const rows = display.map(s => {
+        const pct      = Math.round((s.score / maxScore) * 100);
+        const isWinner = s.name === winnerName && s.score > 0;
+        const badge    = isWinner ? '<span class="score-winner-badge">✓ Winner</span>' : '';
+        return `
+          <div class="score-row${isWinner ? ' winner' : ''}">
+            <span class="score-name">${esc(fmt(s.name))}</span>
+            <div class="score-bar-track">
+              <div class="score-bar-fill${isWinner ? ' winner' : ''}" data-pct="${pct}"></div>
+            </div>
+            <span class="score-num">${s.score}</span>
+            ${badge}
+          </div>`;
+      }).join('');
+
+      const note = hidden > 0
+        ? `<p class="score-more-note">+ ${hidden} more intent${hidden > 1 ? 's' : ''} with score 0</p>`
+        : '';
+
+      document.getElementById('s5-content').innerHTML =
+        `<div class="score-list">${rows}</div>${note}`;
+    }
+
+    function buildStage6(data) {
+      let html = '';
+
+      if (!data.used_fallback && data.winner) {
+        html += `
+          <div class="output-winner">
+            <div class="output-winner-icon">✓</div>
+            <div>
+              <div class="output-winner-name">${esc(fmt(data.winner.name))}</div>
+              <div class="output-winner-score">Score: ${data.winner.score} keyword match${data.winner.score !== 1 ? 'es' : ''}</div>
+            </div>
+          </div>`;
+        html += `<div class="response-label">Response pool — one picked at random:</div>`;
+        html += `<div class="response-pool">`;
+        data.response_pool.forEach(r => {
+          const chosen = r === data.chosen_response;
+          html += `<div class="response-option${chosen ? ' chosen' : ''}">`;
+          if (chosen) html += `<span class="chosen-label">▶ Randomly chosen</span>`;
+          html += `${esc(r)}</div>`;
+        });
+        html += `</div>`;
+      } else {
+        html += `
+          <div class="output-fallback-box">
+            <strong>No intent matched (score = 0)</strong>
+            None of the stems in your input overlapped with any intent's keywords.
+            The chatbot routes this to the OpenAI GPT-4o mini API for a smarter response.
+          </div>`;
+        html += `<div class="response-label">Static fallback (shown if API is unavailable):</div>`;
+        html += `<div class="response-pool">
+          <div class="response-option chosen">
+            <span class="chosen-label">▶ Would be shown</span>${esc(data.chosen_response)}
+          </div></div>`;
+      }
+
+      document.getElementById('s6-content').innerHTML = html;
+    }
+  </script>
+
+</body>
+</html>

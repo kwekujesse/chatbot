@@ -160,6 +160,58 @@ def _fallback_openai(user_input: str) -> str:
 CONFIDENCE_THRESHOLD = 1  # minimum keyword matches to trust the rule-based result
 
 
+def analyze(user_input: str) -> dict:
+    """Return full pipeline breakdown for the visualizer."""
+    text_lower = user_input.lower()
+    text_clean = re.sub(r"[^a-z0-9\s]", " ", text_lower)
+    all_tokens = word_tokenize(text_clean)
+
+    token_info = []
+    for t in all_tokens:
+        if len(t) <= 1:
+            token_info.append({"word": t, "status": "short"})
+        elif t in _stop_words:
+            token_info.append({"word": t, "status": "stopword"})
+        else:
+            token_info.append({"word": t, "status": "kept", "stem": _stemmer.stem(t)})
+
+    stem_pairs = [
+        {"word": t["word"], "stem": t["stem"]}
+        for t in token_info if t["status"] == "kept"
+    ]
+    stems_set = {p["stem"] for p in stem_pairs}
+
+    intents = _get_intents()
+    scores = sorted(
+        [{"name": i["name"], "score": len(stems_set & i["stemmed_keywords"])} for i in intents],
+        key=lambda x: x["score"],
+        reverse=True,
+    )
+
+    winner = scores[0] if scores and scores[0]["score"] >= CONFIDENCE_THRESHOLD else None
+    response_pool = []
+    chosen_response = None
+    if winner:
+        for intent in intents:
+            if intent["name"] == winner["name"]:
+                response_pool = intent["responses"]
+                chosen_response = random.choice(response_pool)
+                break
+    else:
+        chosen_response = _fallback_static()
+
+    return {
+        "raw": user_input,
+        "token_info": token_info,
+        "stem_pairs": stem_pairs,
+        "scores": scores,
+        "winner": winner,
+        "response_pool": response_pool,
+        "chosen_response": chosen_response,
+        "used_fallback": winner is None,
+    }
+
+
 def chat(user_input: str) -> str:
     """
     Primary chat function.

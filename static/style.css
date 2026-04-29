@@ -398,3 +398,11 @@ html, body {
   letter-spacing: 0.01em;
   animation: pageIn 0.5s 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+.footer-link {
+  color: #a1a1aa;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-link:hover { color: var(--indigo); }
